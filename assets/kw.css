@@ -1,0 +1,203 @@
+/* ============================================================
+   SKÓRKA „KLINDWORTH" (27.10.2026, prośba Szymona z karty):
+   kremowe tło, grafit, brąz; szeryfowe nagłówki WERSALIKAMI,
+   lekki bezszeryfowy tekst, przyciski-pigułki z cienką ramką,
+   hero z ukośnie przyciętym zdjęciem, ogromne słowa-nagłówki
+   w ciemnych sekcjach, wielki numer telefonu na końcu.
+   Plik ładowany PO styles.css, więc ten :root wygrywa.
+   ============================================================ */
+:root{
+  --paper:#EDE9E2;
+  --paper-2:#E4DFD6;
+  --paper-3:#E4DFD6;
+  --ink:#24262B;
+  --ink-soft:#33363C;
+  --muted:#5C5A55;
+  --line:rgba(36,38,43,.14);
+  --accent:#AC9376;
+  --accent-d:#7E6A52;
+  --accent-soft:rgba(172,147,118,.14);
+  --accent-text:#7A6650;
+  --gold:#AC9376;
+  --dark:#24262B;
+  --font-display:'Fraunces','Times New Roman',serif;
+  --font-body:'Outfit','Helvetica Neue',sans-serif;
+  --kw-cream-soft:rgba(237,233,226,.72);
+}
+body{background:var(--paper);color:var(--ink);font-weight:300}
+p{font-weight:300}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;letter-spacing:-.01em;color:var(--ink)}
+h2{text-transform:none;font-weight:400;line-height:1.15}
+.eyebrow{font-family:var(--font-body);font-weight:400;letter-spacing:.14em;color:var(--accent-text);font-size:.78rem}
+.eyebrow::before{display:none}
+.head h2::after,.head.center h2::after{display:none}
+
+/* ---------- PRZYCISKI = pigułki z cienką ramką ---------- */
+.btn,.btn-accent,.btn-ghost,.btn-light{border-radius:999px;font-family:var(--font-body);font-weight:400;
+  letter-spacing:0;text-transform:none;box-shadow:none;background:transparent;color:var(--ink);
+  border:1px solid var(--accent);padding:.85rem 1.7rem}
+.btn-accent:hover,.btn-ghost:hover,.btn-light:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:none;box-shadow:none}
+.btn::after{display:none}
+
+/* ---------- NAGŁÓWEK: marka z lewej, menu w białej pigułce na środku, telefon z prawej ---------- */
+.nav,.nav.nav-solid{background:color-mix(in srgb,var(--paper) 94%,transparent);border-bottom:0;box-shadow:none}
+.nav::after{display:none}
+.nav .brand .name,.nav.nav-solid .brand .name{font-family:var(--font-display);font-weight:500;color:var(--ink);
+  text-transform:none;letter-spacing:.01em;font-size:1.55rem}
+.nav .brand .sub,.nav.nav-solid .brand .sub{color:var(--accent-text);border-left-color:var(--line);font-weight:400}
+.nav .nav-links a:not(.btn-accent),.nav.nav-solid .nav-links a:not(.btn-accent){color:var(--ink);text-transform:none;
+  letter-spacing:.01em;font-size:.95rem;font-weight:400}
+.nav .nav-links a:not(.btn-accent)::after{background:var(--accent)}
+.nav .nav-toggle span,.nav.nav-solid .nav-toggle span{background:var(--ink)}
+@media(min-width:681px){
+  .nav .nav-inner{height:84px}
+  .nav.is-stuck .nav-inner{height:72px}
+  .nav .nav-links{padding-right:0;flex:0 0 auto;position:absolute;left:50%;top:50%;translate:-50% -50%;
+    background:#fff;border-radius:999px;padding:.55rem 1.9rem;gap:clamp(1.1rem,2vw,1.8rem)}
+  .nav .nav-links a.btn-accent,.nav:not(.nav-solid) .nav-links a.btn-accent{display:none}
+  .kw-navtel{display:inline-flex;align-items:center;gap:.45em;margin-left:auto;font-size:1rem;font-weight:500;color:var(--ink);white-space:nowrap}
+  .kw-navtel .arr{color:var(--accent)}
+  .kw-navtel:hover{color:var(--accent-text)}
+  .kw-navtel .kw-navtel-lab{display:none}
+}
+@media(min-width:681px) and (max-width:1100px){
+  .kw-navtel .kw-navtel-num{display:none}
+  .kw-navtel .kw-navtel-lab{display:inline}
+}
+@media(max-width:680px){
+  .kw-navtel{display:none}
+  .nav .nav-links{background:var(--paper)}
+  .nav .nav-links a.btn-accent{background:var(--ink);border-color:var(--ink);color:#fff}
+}
+
+/* ---------- HERO: tekst na kremie, zdjęcie przycięte w kształt „<" ---------- */
+.kw-hero{position:relative;min-height:calc(100svh - 84px);display:flex;align-items:flex-end;overflow:hidden;
+  padding-block:clamp(3rem,8vh,6rem) clamp(3.5rem,10vh,7rem);background:var(--paper)}
+.kw-hero-img{position:absolute;top:0;right:0;bottom:0;width:56%;
+  clip-path:polygon(52% 0,100% 0,100% 100%,52% 100%,0 50%)}
+.kw-hero-img img{width:100%;height:100%;object-fit:cover;display:block}
+.kw-hero-inner{position:relative;z-index:2;width:min(92%,1180px);margin-inline:auto}
+.kw-hero-copy{max-width:min(34rem,40vw)}
+@media(max-width:900px){.kw-hero-copy{max-width:none}}
+.kw-kicker{display:block;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);margin-bottom:1.1rem}
+.kw-h1{font-family:var(--font-display);font-weight:600;text-transform:uppercase;line-height:.98;letter-spacing:-.01em;
+  font-size:clamp(2.6rem,1.8rem + 3.6vw,5rem);color:var(--ink)}
+.kw-lead{margin-top:1.4rem;font-size:clamp(1.02rem,.98rem + .25vw,1.18rem);line-height:1.65;max-width:31rem;color:var(--ink-soft)}
+.kw-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem;margin-top:2rem}
+.kw-tel{font-family:var(--font-display);font-size:1.35rem;color:var(--ink);white-space:nowrap}
+.kw-tel:hover{color:var(--accent-text)}
+.kw-trust{margin-top:2rem;font-size:.9rem;color:var(--muted)}
+.kw-trust .ico-star{color:var(--accent)}
+@media(max-width:900px){
+  .kw-hero{flex-direction:column;align-items:stretch;justify-content:flex-start;min-height:0;padding-top:0}
+  .kw-hero-img{position:relative;width:100%;height:clamp(260px,52vw,420px);clip-path:polygon(0 0,100% 0,100% 100%,0 82%)}
+  .kw-hero-inner{margin-top:2rem}
+}
+
+/* pas obietnic pod hero - cienkie linie zamiast belki */
+.fach-promise{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fach-promise .fp-row li{color:var(--ink-soft);font-weight:400;letter-spacing:.08em}
+.fach-promise .fp-row li::before{background:var(--accent)}
+
+/* ---------- CO ROBIMY: ciemna sekcja, pionowy podpis, zdjęcia „schodkami" ---------- */
+.kw-what{background:var(--dark);color:var(--paper);padding-block:clamp(5rem,10vw,9rem)}
+.kw-what-top{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.kw-vert{justify-self:center;writing-mode:vertical-rl;transform:rotate(180deg);font-size:.78rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--accent)}
+.kw-what-txt{color:var(--kw-cream-soft);font-size:clamp(1.02rem,.98rem + .25vw,1.18rem);line-height:1.75;max-width:34rem}
+.kw-what-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1rem,2.4vw,2rem);margin-top:clamp(3rem,6vw,5rem);align-items:start}
+.kw-feat{display:block;color:var(--paper)}
+.kw-feat-img{overflow:hidden;display:block}
+.kw-feat img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--img-dur) var(--img-ease)}
+.kw-feat:hover img{transform:scale(var(--img-zoom))}
+.kw-feat-t{display:block;margin-top:1rem;font-size:1rem;color:var(--paper)}
+.kw-feat-t .arr{color:var(--accent);margin-left:.3em}
+.kw-feat-s{display:block;font-size:.88rem;color:rgba(237,233,226,.55);margin-top:.15rem}
+.kw-feat--a{grid-column:7 / span 4}
+.kw-feat--a .kw-feat-img{aspect-ratio:3/2}
+.kw-feat--b{grid-column:11 / span 2;margin-top:2rem}
+.kw-feat--b .kw-feat-img{aspect-ratio:4/5}
+.kw-feat--c{grid-column:1 / span 4;margin-top:-6rem}
+.kw-feat--c .kw-feat-img{aspect-ratio:3/4}
+@media(max-width:900px){
+  .kw-what-top{grid-template-columns:1fr}
+  .kw-vert{writing-mode:horizontal-tb;transform:none;justify-self:start}
+  .kw-feat--a,.kw-feat--b,.kw-feat--c{grid-column:1 / -1;margin-top:0}
+  .kw-feat--b .kw-feat-img,.kw-feat--c .kw-feat-img{aspect-ratio:3/2}
+}
+
+/* ---------- OGROMNE SŁOWO-NAGŁÓWEK (jak „WORK" / „KUDOS") ---------- */
+.kw-giant,.kw-what .kw-giant,.opinie h2.kw-giant,.kw-work h2.kw-giant{font-family:var(--font-display);font-weight:600;text-transform:uppercase;line-height:.85;letter-spacing:-.02em;
+  font-size:clamp(2.4rem,.4rem + 10.5vw,12rem);overflow-wrap:anywhere;color:var(--paper);margin:0 0 clamp(2rem,4vw,3.5rem)}
+
+/* ---------- REALIZACJE na ciemnym ---------- */
+.kw-work{background:var(--dark);color:var(--paper);padding-top:clamp(2rem,4vw,4rem)}
+.kw-work .head p{color:var(--kw-cream-soft)}
+.kw-work .tile{border-radius:0}
+.kw-work .btn{color:var(--paper)}
+
+/* ---------- PROCES / OFERTA na kremie ---------- */
+.proces,.fach-uslugi,.faq-klinika,.obszar{background:var(--paper)}
+.proc-count .pc-cur,.proces-line .pno{font-family:var(--font-display);color:var(--accent-text)}
+.fu-row .fu-name{font-family:var(--font-display);font-size:1.3rem;font-weight:500}
+.fu-row .fu-cta{color:var(--accent-text)}
+.fach-uslugi .head{text-align:center;margin-inline:auto}
+.fach-uslugi .head h2{max-width:22ch;margin-inline:auto}
+.fach-uslugi .head p{margin-inline:auto}
+
+/* ---------- OPINIE na ciemnym, duże cytaty szeryfem ---------- */
+.opinie{background:var(--dark);color:var(--paper)}
+.opinie .head .eyebrow{color:var(--accent)}
+.opinie .head h2{color:var(--paper)}
+.opinie .op-card{background:transparent;border:0;border-top:1px solid rgba(237,233,226,.18);border-radius:0;box-shadow:none;padding:1.6rem 0 0}
+.opinie .op-card blockquote{font-family:var(--font-display);font-weight:400;font-size:clamp(1.12rem,1rem + .45vw,1.4rem);
+  line-height:1.45;color:var(--paper)}
+.opinie .op-autor{color:rgba(237,233,226,.6);font-weight:400}
+.opinie .op-star{color:var(--accent)}
+.opinie .g-badge{background:rgba(237,233,226,.08);color:var(--paper);border-color:rgba(237,233,226,.18)}
+.opinie .op-google{color:var(--paper);border-color:rgba(237,233,226,.3);background:transparent}
+.opinie .g-badge .gb-txt{color:rgba(237,233,226,.75)}
+
+/* ---------- FAQ ---------- */
+.faq-item{background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;box-shadow:none}
+.faq-item summary{font-family:var(--font-display);font-weight:400;font-size:1.15rem}
+
+/* ---------- KOŃCÓWKA: „Porozmawiajmy" + wielki numer ---------- */
+.kw-cta{background:var(--dark);color:var(--paper);text-align:center;padding-block:clamp(5rem,10vw,9rem)}
+.kw-cta .eyebrow{color:var(--accent);justify-content:center}
+.kw-cta-num{display:block;font-family:var(--font-display);font-weight:500;line-height:1;white-space:nowrap;
+  font-size:clamp(2.4rem,.6rem + 8vw,8.5rem);color:var(--paper);margin:1.2rem 0 1.6rem;letter-spacing:-.01em}
+.kw-cta-num:hover{color:var(--accent)}
+.kw-cta p{color:var(--kw-cream-soft);max-width:40ch;margin:0 auto 2rem}
+.kw-cta .btn{color:var(--paper)}
+
+/* stare CTA na podstronach - te same barwy */
+.cta{background:var(--dark)}
+.cta h2{font-family:var(--font-display);font-weight:400}
+.cta .btn-light,.cta .btn-ghost-cta{color:var(--paper);background:transparent;border-color:var(--accent)}
+.cta .btn-light:hover,.cta .btn-ghost-cta:hover{background:var(--accent);color:#fff}
+
+/* ---------- NAGŁÓWKI PODSTRON ---------- */
+.pagehead h1{font-family:var(--font-display);font-weight:600;text-transform:uppercase;letter-spacing:-.01em}
+.pagehead .eyebrow{color:#fff}
+
+/* ---------- STOPKA na kremie ---------- */
+footer{background:var(--paper);color:var(--ink);border-top:1px solid var(--line)}
+.foot-brand .name{font-family:var(--font-display);font-weight:500;letter-spacing:.01em;color:var(--ink)}
+.foot-brand p{color:var(--muted)}
+.foot-col h4{color:var(--accent-text);font-family:var(--font-body);font-weight:400}
+.foot-col a,.foot-col p{color:var(--ink-soft)}
+.foot-col a:hover{color:var(--accent-text)}
+.foot-soc .soc{color:var(--ink);border-color:var(--line)}
+.foot-bot{border-top-color:var(--line);color:var(--muted)}
+.foot-bot a:hover{color:var(--ink)}
+.foot-bot a.foot-credit{color:var(--ink-soft);border-bottom-color:var(--line)}
+.foot-bot a.foot-credit:hover{color:var(--ink);border-bottom-color:var(--ink)}
+
+/* pasek „Zadzwoń" na telefonie */
+.sticky-call a.sc-call{background:var(--ink);color:#fff}
+.sticky-call a.sc-quote{background:var(--accent-d);color:#fff}
+
+.opinie h2.kw-giant{text-align:center}
+.stopklatka{margin-bottom:0}
+.nav .nav-links a:not(.btn-accent):hover,.nav .nav-links a.active:not(.btn-accent),.nav.nav-solid .nav-links a.active:not(.btn-accent){color:var(--accent-text)}
